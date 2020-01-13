@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Suleyman K. - a software developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='external/hes-gallery.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}">
+</head>
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
+        <table>
+            <tr>
+                <td id="logo"><a href="#top_part">Suleyman Kipkoech</a></td>
+                <td id="navigation">
+                    <a href="#work">work</a>
+                    <a href="#bio">about</a>
+                    <a href="#">résumé</a>
+                    <a href="#contact">contact</a>
+                </td>
+            </tr>
+        </table>
+    </header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div id="modal" class="success-modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <table id="top_part">
+        <tr>
+            <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
+                <h1>Hi, I'm Suleyman, a software developer.</h1>
+                <button class="btn_one" onclick="window.location.href = 'mailto:suleykip@gmail.com';">Hire Me</button><br>
+            </td>
+            <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
+        </tr>
+    </table>
+    <div id="work">
+        <div class="hes-gallery">
+            <img src="{{ url_for('static', filename='images/astrim.png') }}" />
+            <img src="{{ url_for('static', filename='images/astrim2.png') }}" />
+            <img src="{{ url_for('static', filename='images/astrim3.png') }}" />
+            <img src="{{ url_for('static', filename='images/astrim4.png') }}" />
+        </div>
+        <div class="hes-gallery">
+            <img src="{{ url_for('static', filename='images/vextre.png') }}" />
+            <img src="{{ url_for('static', filename='images/vextre2.png') }}" />
+            <img src="{{ url_for('static', filename='images/vextre3.png') }}" />
+            <img src="{{ url_for('static', filename='images/vextre4.png') }}" />
+        </div>
+        <h1>work</h1>
+        <div id="photos">
+            <li class="showcase">
+                <ul style="margin-top:0px;">
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/astrim.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>AstrIM chat</h2>
+                                <p>A self-hosted end-to-end encrypted chat platform with plugin support and rich configuration options</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="HesGallery.show(0, 0);">Screenshots</button>
+                                    <a href="#contact"><button class="btn_two">Request a demo</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/scribe.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>Scribe</h2>
+                                <p>A minimalist text-editor with customizable text highlighting support</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="window.open('https://github.com/ansh3ll/scribe', '_blank');">View Source</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/shredder.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>Shredder</h2>
+                                <p>A utility for permanently and irrecoverably getting rid of unwanted files and folders</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="window.open('https://github.com/ansh3ll/shredder', '_blank');">View Source</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/portfolio.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>This Portfolio</h2>
+                                <p>The beautiful portfolio website you are currently viewing</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="window.open('https://github.com/ansh3ll/portfolio', '_blank');">View Source</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/tasks.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>Tasks</h2>
+                                <p>A minimalist task tracking webapp built with python on flask</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="window.open('https://github.com/ansh3ll/tasks-todo', '_blank');">View Source</button>
+                                    <button class="btn_two" onclick="window.open('https://taskman.pythonanywhere.com/', '_blank');">View Live</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="wrapper">
+                        <img src="{{ url_for('static', filename='images/vextre.png') }}">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2>Vextre Games</h2>
+                                <p>A simple gaming website starter kit with a nice UI and working flash games</p>
+                                <div class="btn_center">
+                                    <button class="btn_two" onclick="HesGallery.show(1, 0);">Screenshots</button>
+                                    <button class="btn_two" onclick="window.open('https://github.com/ansh3ll/vextre-games', '_blank');">View Source</button>
+                                    <button class="btn_two" onclick="window.open('http://vextre.epizy.com/', '_blank');">View Live</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </li>
+        </div>
+    </div>
+    <div id="bio">
+        <h1>about</h1>
+        <p>
+        Hi, I'm a software developer based in Nairobi, Kenya. I immensely enjoy everything related to software and computers
+        as well as solving problems using my skills. I am confident in the skills I already possess and continuously strive to
+        learn more whenever I can.
+        </p><p>
+        My passion for computers and programming started at the age of 15 when I was in high school. I have since completed
+        a number of projects, with my biggest being an end-to-end encrypted, modular and extensible chat platform for desktop
+        (and soon mobile) that I built from scratch.
+        </p><p>
+        I am proficient in: Python, Java, C++, HTML, CSS and JavaScript, all of which are languages I have used in my projects.
+        I am also familiar with the linux operating system, git, wordpress and various software development techniques such as
+        agile and test-driven. Other than coding though, I occasionally enjoy PC and mobile games, cycling and losing myself in
+        both fictional and non-fictional works of literature. If you're interested in working together on a project or making use
+        of some of my skills, you may contact me through the various means available on this page. Have a nice day :)
+        </p>
+    </div>
+    <div id="contact">
+        <h1>contact</h1>
+            <table>
+                <tr>
+                    <td>
+                        <div id="inner_div">
+                            <table id="inner_table">
+                                <tr>
+                                    <td><i class="fas fa-at"></i> &nbsp; suleykip@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-map-marker-alt"></i>
+                                    <div id="address">
+                                        Nairobi,<br>
+                                        Kenya,<br>
+                                        East Africa
+                                    </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="social" href="https://github.com/ansh3ll" target="_blank"><i class="fab fa-github"></i></a>
+                                        <a class="social" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                        <a class="social" href="mailto:suleykip@gmail.com"><i class="fa fa-envelope"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>
+                        <form action="{{ url_for('contact') }}" method="POST">
+                            <input name="name" type="text" placeholder="Name" required>
+                            <input name="email" type="email" placeholder="Email" required><br>
+                            <textarea name="message" placeholder="Your message" required rows="5"></textarea><br>
+                            <button class="btn_one">Send</button>
+                        </form> 
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <div id="footer">
+        <p>&copy; 2020 <a href="#top_part">Suleyman K. (Ansh3ll)</a>. All rights reserved.</p>
+    </div>
+    <script src="{{ url_for('static', filename='external/hes-gallery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}" type="text/javascript"></script>
+</body>
+</html>
